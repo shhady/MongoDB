@@ -65,7 +65,6 @@ app.get("/products/:id", async (req, res) => {
 });
 
 app.get("/active", (req, res) => {
-  //   const isactive = req.params.isactive;
   Product.find({ isActive: true })
     .then((products) => {
       if (!products) {
@@ -115,7 +114,7 @@ app.patch("/prdoducts/:id", async (req, res) => {
     "details.description",
     "details.price",
     "details.discount",
-    "details.",
+    "details.date",
   ];
   const isValidOperation = updates.every((update) =>
     allowedUpdates.includes(update)
